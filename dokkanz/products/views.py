@@ -1,6 +1,11 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
+from rest_framework import viewsets
 
-from django.shortcuts import render
+from products.models import Product
+from products.serializers import ProductSerializer
 
-# Create your views here.
+
+class ProductViewSet(viewsets.ModelViewSet):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
